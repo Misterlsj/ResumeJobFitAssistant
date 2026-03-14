@@ -2,7 +2,7 @@
 
 ## 🔒 Security Commitment
 
-We are committed to maintaining the security of Resume Job-Fit Assistant. This project follows these security principles:
+We are committed to maintaining the security of [Resume Job-Fit Assistant](https://resumescorer.com). This project follows these security principles:
 
 - **Zero User Data Collection**: All data stored locally
 - **No External API Calls**: No data sent to any external services
@@ -117,9 +117,12 @@ When security vulnerabilities are discovered and fixed:
 
 ## 📞 Contact Information
 
-- **Security Issues**: [To be added]
+- **Security Issues**: security@resumescorer.com
 - **General Issues**: [GitHub Issues](../../issues)
+- **Website**: [https://resumescorer.com](https://resumescorer.com)
 
 ---
 
 **Last Updated**: 2025-01-14
+
+**Built by [ResumeScorer](https://resumescorer.com)** - Your trusted resume optimization partner.

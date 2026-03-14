@@ -344,6 +344,51 @@ body {
   color: var(--color-primary-light);
 }
 
+.footer-note a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-note a:hover {
+  text-decoration: underline;
+}
+
+/* Visit Website Section */
+.visit-website {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.visit-website p {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.visit-website a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.visit-website a:hover {
+  text-decoration: underline;
+}
+
+/* Platform Links */
+.platform-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.platform-link:hover {
+  text-decoration: underline;
+}
+
 /* Error State */
 .error-state {
   align-items: center;

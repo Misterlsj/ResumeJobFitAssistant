@@ -23,8 +23,8 @@ const elements = {
   errorMessage: document.getElementById('errorMessage')
 };
 
-// Website URL for CTA (should be configurable)
-const WEBSITE_URL = 'https://resume-tool.com/tailor';
+// Website URL for CTA
+const WEBSITE_URL = 'https://resumescorer.com/tailor';
 
 /**
  * Capitalizes platform name for display

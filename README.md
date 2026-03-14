@@ -1,6 +1,17 @@
 # Resume Job-Fit Assistant - Chrome Extension
 
-A Chrome browser extension (Manifest V3) that automatically detects job content on recruitment websites and provides one-click navigation to resume tool websites.
+A Chrome browser extension (Manifest V3) that automatically detects job content on recruitment websites and provides one-click navigation to [ResumeScorer](https://resumescorer.com) - your AI-powered resume optimization platform.
+
+## 🌟 About ResumeScorer
+
+[ResumeScorer](https://resumescorer.com) is an intelligent resume analysis and optimization platform that helps job seekers:
+
+- **Analyze Match Rate** - See how well your resume matches job requirements
+- **Get AI Suggestions** - Receive personalized recommendations to improve your resume
+- **Optimize Keywords** - Ensure your resume contains the right keywords for ATS systems
+- **Track Applications** - Monitor your job application success rate
+
+This extension seamlessly bridges job postings from major recruitment sites to ResumeScorer's analysis tools.
 
 ## Features
 
@@ -201,7 +212,16 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) for deta
 
 ## Resources
 
+- **[Visit ResumeScorer](https://resumescorer.com)** - Main website
 - [Contributing Guidelines](CONTRIBUTING.md)
 - [Development Guide](DEVELOPMENT.md)
 - [Security Policy](SECURITY.md)
 - [Support Center](SUPPORT.md)
+
+## License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+**Made with ❤️ by [ResumeScorer](https://resumescorer.com)** - helping job seekers land their dream jobs.

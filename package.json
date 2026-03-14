@@ -1,0 +1,38 @@
+{
+  "name": "resume-job-fit-assistant",
+  "version": "1.0.0",
+  "description": "Chrome extension that auto-detects job postings and connects to ResumeScorer's AI-powered resume analysis platform",
+  "author": "ResumeScorer",
+  "homepage": "https://resumescorer.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Misterlsj/ResumeJobFitAssistant.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Misterlsj/ResumeJobFitAssistant/issues"
+  },
+  "keywords": [
+    "chrome-extension",
+    "job-search",
+    "resume",
+    "resume-scoring",
+    "job-matching",
+    "ats",
+    "applicant-tracking-system",
+    "recruitment",
+    "career",
+    "job-application",
+    "linkedin",
+    "indeed",
+    "glassdoor",
+    "manifest-v3"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "lint": "web-ext lint",
+    "validate": "web-ext lint --warnings-as-errors"
+  },
+  "devDependencies": {
+    "web-ext": "^7.0.0"
+  }
+}

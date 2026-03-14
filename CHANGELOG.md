@@ -1,6 +1,6 @@
 # Changelog
 
-This document records all significant changes to the project.
+This document records all significant changes to the [Resume Job-Fit Assistant](https://resumescorer.com) project.
 
 Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and versioning adheres to [Semantic Versioning](https://semver.org/).
@@ -11,12 +11,16 @@ and versioning adheres to [Semantic Versioning](https://semver.org/).
 - Add automated testing
 - Add CI/CD pipeline
 - Support more job boards
+- Direct integration with ResumeScorer API
+- Multi-language support
 
 ## [1.0.0] - 2025-01-14
 
 ### Added
 - ✨ Initial release
-- 🎯 Support for 5 major job boards:
+- 🎯 Support for 5 major job boards
+- 🌐 Integration with [ResumeScorer](https://resumescorer.com) platform
+- 🔗 Direct links to resume analysis tools
   - LinkedIn (`linkedin.com/jobs/view/*`)
   - Indeed (`indeed.com/viewjob*`, `indeed.com/jobs*`)
   - Glassdoor (`glassdoor.com/job-listing/*`)
@@ -102,3 +106,5 @@ Core functionality complete, supports major job boards, clean architecture, comp
 ---
 
 **Maintainer**: Please update this file with each release
+
+**Built by [ResumeScorer](https://resumescorer.com)** - Empowering job seekers worldwide.

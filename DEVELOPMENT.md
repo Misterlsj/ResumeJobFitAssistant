@@ -1,6 +1,10 @@
 # Development Guide
 
-This document provides detailed development guidelines for the Resume Job-Fit Assistant Chrome extension.
+This document provides detailed development guidelines for the [Resume Job-Fit Assistant](https://resumescorer.com) Chrome extension.
+
+## 🌟 About This Project
+
+This extension is developed by [ResumeScorer](https://resumescorer.com) as part of our mission to help job seekers create better resumes and land more interviews. The extension serves as a bridge between job postings and our AI-powered resume analysis platform.
 
 ## 📋 Table of Contents
 
@@ -425,7 +429,10 @@ git push origin v1.0.0
 ### Project Documentation
 - [README.md](README.md) - Project overview and quick start
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
+- **ResumeScorer**: [https://resumescorer.com](https://resumescorer.com)
 
 ---
+
+**Built by [ResumeScorer](https://resumescorer.com)** - Helping job seekers succeed.
 
 Have questions? Check [Issues](../../issues) or create a new Issue!

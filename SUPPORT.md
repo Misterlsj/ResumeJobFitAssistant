@@ -1,6 +1,17 @@
 # Getting Help
 
-Welcome to the Resume Job-Fit Assistant support center! Here are various ways to get help.
+Welcome to the [Resume Job-Fit Assistant](https://resumescorer.com) support center! Here are various ways to get help.
+
+## 🌟 About ResumeScorer
+
+[ResumeScorer](https://resumescorer.com) is an AI-powered resume optimization platform that helps you:
+
+- **Match Jobs to Your Resume** - See how well you fit job requirements
+- **Get AI Suggestions** - Receive personalized recommendations
+- **Optimize for ATS** - Ensure your resume passes automated screening
+- **Track Applications** - Monitor your job search progress
+
+This extension seamlessly connects job postings from major recruitment sites to ResumeScorer's analysis tools.
 
 ## 📚 Documentation
 
@@ -143,9 +154,15 @@ If you want to contribute code:
 - **Discussions**: [Join Discussions](../../discussions)
 - **Pull Requests**: [Submit Code](../../pulls)
 
+### Website
+- **ResumeScorer**: [https://resumescorer.com](https://resumescorer.com)
+- **Features**: Learn about our AI-powered resume analysis
+- **Blog**: Career tips and resume best practices
+
 ### Community
 - **Star ⭐**: If this project helps you, please give it a Star
 - **Fork**: If you want to contribute, Fork this project
+- **Share**: Help other job seekers discover this tool
 
 ## 📖 Learning Resources
 
@@ -230,6 +247,11 @@ If you want to help translate:
 
 We appreciate your usage and feedback. Let's make this project better together!
 
+**Visit [ResumeScorer](https://resumescorer.com)** to supercharge your job search today!
+
 ---
 
-**Need more help?** → [Create Issue](../../issues)
+**Need more help?**
+- 📖 [ResumeScorer Support](https://resumescorer.com)
+- 🐛 [Create Issue](../../issues)
+- 💬 [Join Discussions](../../discussions)

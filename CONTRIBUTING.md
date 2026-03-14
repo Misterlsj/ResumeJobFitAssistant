@@ -1,6 +1,17 @@
 # Contributing Guidelines
 
-Thank you for your interest in contributing to the Resume Job-Fit Assistant project! We welcome all forms of contributions.
+Thank you for your interest in contributing to the [Resume Job-Fit Assistant](https://resumescorer.com) project! We welcome all forms of contributions.
+
+## 🌟 About ResumeScorer
+
+This extension is developed by [ResumeScorer](https://resumescorer.com), an AI-powered resume optimization platform that helps job seekers:
+
+- Analyze how well their resume matches job requirements
+- Get personalized AI-driven improvement suggestions
+- Optimize keywords for Applicant Tracking Systems (ATS)
+- Track job application success rates
+
+By contributing to this extension, you're helping job seekers worldwide land their dream jobs!
 
 ## 🤝 How to Contribute
 
@@ -204,6 +215,7 @@ chrome.tabs.query({}, console.log);
 - 💡 **Feature suggestions**: Use [Issues](../../issues) with `enhancement` label
 - 🐛 **Bug reports**: Use Issues with `bug` label
 - 💭 **General discussion**: Use [Discussions](../../discussions)
+- 🌐 **Visit ResumeScorer**: [https://resumescorer.com](https://resumescorer.com)
 
 ## 📄 License
 
@@ -213,6 +225,9 @@ By contributing code, you agree that your contributions will be licensed under t
 
 Thanks to all contributors who make this project better!
 
+**Built with ❤️ by [ResumeScorer](https://resumescorer.com)** - Empowering job seekers to succeed.
+
 ---
 
 Have questions? Feel free to create an Issue or Discussion, and we'll respond as soon as possible!
+

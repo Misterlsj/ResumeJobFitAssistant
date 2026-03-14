@@ -1,6 +1,15 @@
 # GitHub Repository Setup Complete Guide 🎉
 
-Congratulations! Your GitHub repository has been configured with professional settings. This guide will walk you through the final setup steps.
+Congratulations! Your [Resume Job-Fit Assistant](https://resumescorer.com) GitHub repository has been configured with professional settings. This guide will walk you through the final setup steps.
+
+## 🌟 About This Project
+
+This repository hosts the Chrome extension for [ResumeScorer](https://resumescorer.com), an AI-powered resume optimization platform that helps job seekers:
+
+- Analyze resume-job match rates
+- Get AI-driven improvement suggestions
+- Optimize for Applicant Tracking Systems (ATS)
+- Track application success rates
 
 ## ✅ Completed Configuration
 
@@ -103,9 +112,9 @@ https://github.com/Misterlsj/ResumeJobFitAssistant/settings
 ```
 
 #### 4.1 Basic Information
-- **Description**: Chrome extension that bridges job postings to resume tools
-- **Website**: (Your website URL if applicable)
-- **Topics**: `chrome-extension`, `job-search`, `resume`, `recruitment`, `manifest-v3`
+- **Description**: Chrome extension that bridges job postings to ResumeScorer's AI-powered resume analysis
+- **Website**: https://resumescorer.com
+- **Topics**: `chrome-extension`, `job-search`, `resume`, `recruitment`, `manifest-v3`, `ats`, `resume-optimizer`
 
 #### 4.2 Features Settings
 In "Features" section:
@@ -254,5 +263,7 @@ Your GitHub repository is now configured as a professional open source project!
 - Review and merge PRs promptly
 - Keep Issues organized
 - Release new versions periodically
+
+**Visit [ResumeScorer](https://resumescorer.com)** to learn more about our platform!
 
 **Good luck with your project!** 🚀

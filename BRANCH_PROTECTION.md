@@ -1,6 +1,6 @@
 # Branch Protection Setup Guide
 
-This document explains how to set up branch protection rules on GitHub to ensure code quality and project stability.
+This document explains how to set up branch protection rules for the [Resume Job-Fit Assistant](https://resumescorer.com) project on GitHub to ensure code quality and project stability.
 
 ## 🎯 Recommended Branch Protection Configuration
 
@@ -218,3 +218,5 @@ git rebase origin/main
 ---
 
 **Note**: We recommend setting up branch protection immediately, even for personal projects to prevent accidental pushes.
+
+**Built by [ResumeScorer](https://resumescorer.com)** - Your resume optimization partner.
