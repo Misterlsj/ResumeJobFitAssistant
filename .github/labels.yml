@@ -1,0 +1,91 @@
+- name: "bug"
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: "enhancement"
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: "documentation"
+  color: "0075ca"
+  description: "Improvements or additions to documentation"
+
+- name: "duplicate"
+  color: "cfd3d7"
+  description: "This issue or pull request already exists"
+
+- name: "good first issue"
+  color: "7057ff"
+  description: "Good for newcomers"
+
+- name: "help wanted"
+  color: "008672"
+  description: "Extra attention is needed"
+
+- name: "invalid"
+  color: "e4e669"
+  description: "This doesn't seem right"
+
+- name: "question"
+  color: "d876e3"
+  description: "Further information is requested"
+
+- name: "wontfix"
+  color: "ffffff"
+  description: "This will not be worked on"
+
+- name: "priority: high"
+  color: "b60205"
+  description: "High priority"
+
+- name: "priority: medium"
+  color: "fbca04"
+  description: "Medium priority"
+
+- name: "priority: low"
+  color: "0e8a16"
+  description: "Low priority"
+
+- name: "platform: linkedin"
+  color: "00008B"
+  description: "Issue related to LinkedIn"
+
+- name: "platform: indeed"
+  color: "00008B"
+  description: "Issue related to Indeed"
+
+- name: "platform: glassdoor"
+  color: "00008B"
+  description: "Issue related to Glassdoor"
+
+- name: "platform: lever"
+  color: "00008B"
+  description: "Issue related to Lever"
+
+- name: "platform: greenhouse"
+  color: "00008B"
+  description: "Issue related to Greenhouse"
+
+- name: "status: ready for review"
+  color: "0E8A16"
+  description: "Pull request is ready for review"
+
+- name: "status: work in progress"
+  color: "FBBA04"
+  description: "Pull request is still being worked on"
+
+- name: "status: needs changes"
+  color: "D93F0B"
+  description: "Pull request needs changes"
+
+- name: "security"
+  color: "d93f0b"
+  description: "Security related issue"
+
+- name: "performance"
+  color: "5319E7"
+  description: "Performance related issue"
+
+- name: "ui/ux"
+  color: "FF69B4"
+  description: "User interface or user experience issue"

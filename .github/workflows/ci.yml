@@ -1,0 +1,175 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    name: Lint Extension
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install web-ext
+      run: npm install -g web-ext
+
+    - name: Run web-ext lint
+      run: web-ext lint --warnings-as-errors
+      continue-on-error: true
+
+  validate-manifest:
+    name: Validate manifest.json
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Check manifest.json exists
+      run: |
+        if [ ! -f manifest.json ]; then
+          echo "manifest.json not found!"
+          exit 1
+        fi
+
+    - name: Validate manifest.json syntax
+      run: |
+        node -e "JSON.parse(require('fs').readFileSync('manifest.json', 'utf8'))"
+
+  check-file-structure:
+    name: Check Required Files
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Check required files exist
+      run: |
+        REQUIRED_FILES=(
+          "manifest.json"
+          "background/service-worker.js"
+          "popup/popup.html"
+          "popup/popup.js"
+          "popup/popup.css"
+          "settings/settings.html"
+          "settings/settings.js"
+          "sidebar/sidebar.js"
+          "sidebar/sidebar.css"
+          "README.md"
+          "LICENSE"
+        )
+
+        MISSING_FILES=()
+
+        for file in "${REQUIRED_FILES[@]}"; do
+          if [ ! -f "$file" ]; then
+            MISSING_FILES+=("$file")
+          fi
+        done
+
+        if [ ${#MISSING_FILES[@]} -gt 0 ]; then
+          echo "Missing required files:"
+          printf '%s\n' "${MISSING_FILES[@]}"
+          exit 1
+        fi
+
+    - name: Check content scripts exist
+      run: |
+        CONTENT_SCRIPTS=(
+          "content-scripts/detector.js"
+          "content-scripts/linkedin.js"
+          "content-scripts/indeed.js"
+          "content-scripts/glassdoor.js"
+          "content-scripts/lever.js"
+          "content-scripts/greenhouse.js"
+        )
+
+        MISSING_SCRIPTS=()
+
+        for script in "${CONTENT_SCRIPTS[@]}"; do
+          if [ ! -f "$script" ]; then
+            MISSING_SCRIPTS+=("$script")
+          fi
+        done
+
+        if [ ${#MISSING_SCRIPTS[@]} -gt 0 ]; then
+          echo "Missing content scripts:"
+          printf '%s\n' "${MISSING_SCRIPTS[@]}"
+          exit 1
+        fi
+
+  check-assets:
+    name: Check Asset Files
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Check icon files exist
+      run: |
+        ICON_FILES=(
+          "assets/icon-16.png"
+          "assets/icon-48.png"
+          "assets/icon-128.png"
+        )
+
+        MISSING_ICONS=()
+
+        for icon in "${ICON_FILES[@]}"; do
+          if [ ! -f "$icon" ]; then
+            MISSING_ICONS+=("$icon")
+          fi
+        done
+
+        if [ ${#MISSING_ICONS[@]} -gt 0 ]; then
+          echo "⚠️  Missing icon files:"
+          printf '%s\n' "${MISSING_ICONS[@]}"
+          echo "Note: Icon files should be created before release"
+        fi
+
+  documentation-check:
+    name: Check Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Check documentation files exist
+      run: |
+        DOC_FILES=(
+          "README.md"
+          "CONTRIBUTING.md"
+          "DEVELOPMENT.md"
+          "SECURITY.md"
+          "SUPPORT.md"
+          "CHANGELOG.md"
+          "CODE_OF_CONDUCT.md"
+        )
+
+        MISSING_DOCS=()
+
+        for doc in "${DOC_FILES[@]}"; do
+          if [ ! -f "$doc" ]; then
+            MISSING_DOCS+=("$doc")
+          fi
+        done
+
+        if [ ${#MISSING_DOCS[@]} -gt 0 ]; then
+          echo "Missing documentation files:"
+          printf '%s\n' "${MISSING_DOCS[@]}"
+          exit 1
+        fi
