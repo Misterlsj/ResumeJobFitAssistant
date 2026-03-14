@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Resume Job-Fit Assistant</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Extension Settings</h1>
+      <a href="popup.html" class="back-link">← Back to Popup</a>
+    </header>
+
+    <main class="content">
+      <section class="setting-section">
+        <h2>General Settings</h2>
+
+        <div class="setting-item">
+          <label class="setting-label">
+            <input type="checkbox" id="enabledToggle" checked>
+            <span>Enable Extension</span>
+          </label>
+          <p class="setting-description">
+            When enabled, the extension will automatically detect job postings on supported sites.
+          </p>
+        </div>
+
+        <div class="setting-item">
+          <label class="setting-label">
+            <input type="checkbox" id="autoDetectToggle" checked>
+            <span>Auto-detect Jobs</span>
+          </label>
+          <p class="setting-description">
+            Automatically detect and extract job data when you visit a job posting page.
+          </p>
+        </div>
+      </section>
+
+      <section class="setting-section">
+        <h2>Supported Platforms</h2>
+        <ul class="platform-list">
+          <li>✓ LinkedIn (linkedin.com/jobs/view/*)</li>
+          <li>✓ Indeed (indeed.com/viewjob*, indeed.com/jobs*)</li>
+          <li>✓ Glassdoor (glassdoor.com/job-listing/*)</li>
+          <li>✓ Lever (jobs.lever.co/*)</li>
+          <li>✓ Greenhouse (boards.greenhouse.io/*/jobs/*)</li>
+        </ul>
+      </section>
+
+      <section class="setting-section">
+        <h2>About</h2>
+        <div class="about-info">
+          <p><strong>Version:</strong> 1.0.0</p>
+          <p><strong>Manifest:</strong> V3</p>
+          <p>This extension contains zero AI functionality. All intelligence lives on our website.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

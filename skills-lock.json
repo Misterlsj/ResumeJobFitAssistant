@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "browser-extension-builder": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "d8c7056ffd58cda2606c73eecee5ca23a0caf8e0edb73dcfd817e53fdfb01af7"
+    },
+    "chrome-extension": {
+      "source": "pproenca/dot-skills",
+      "sourceType": "github",
+      "computedHash": "4f35f0c845cf24ec080a676a570625c38b579658e97fd91696311555a02ae440"
+    },
+    "chrome-extension-development": {
+      "source": "mindrally/skills",
+      "sourceType": "github",
+      "computedHash": "879436797b8c35a063dc89a04b4182975114c5baf9dbf692455b7ed164420f9e"
+    },
+    "chrome-extension-ui": {
+      "source": "pproenca/dot-skills",
+      "sourceType": "github",
+      "computedHash": "c4ba98e09999f76f4ab145dbcd8b4deee38bb119e89a7eb99029a3af70db457c"
+    },
+    "docx": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "150be87ff7b18f273ad07da303adb1cf2ca21cc3e76db7a2cf0373405178a278"
+    },
+    "use-dom": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "computedHash": "63a18bc2e07d18313aa9749bbb59c542c9b141424c56bd5514907be276c5bf80"
+    }
+  }
+}

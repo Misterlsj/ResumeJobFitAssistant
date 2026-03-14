@@ -1,0 +1,87 @@
+/**
+ * Floating Badge Styles
+ * These styles are injected by sidebar.js but are kept here as reference
+ */
+
+/* Main Badge Container */
+.resume-assistant-badge {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  animation: resume-assistant-slide-in 300ms ease-out;
+  cursor: pointer;
+}
+
+/* Badge Content */
+.badge-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1E3A5F;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Hover Effect */
+.resume-assistant-badge:hover .badge-content {
+  background: #2E75B6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge Icon */
+.badge-icon {
+  flex-shrink: 0;
+  color: #4CAF50;
+}
+
+/* Badge Text */
+.badge-text {
+  white-space: nowrap;
+}
+
+/* Animations */
+@keyframes resume-assistant-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes resume-assistant-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Removing state */
+.resume-assistant-badge.removing {
+  animation: resume-assistant-fade-out 300ms ease-in forwards;
+}
+
+/* Platform-specific positioning adjustments */
+.resume-assistant-badge[data-platform="linkedin"] {
+  /* LinkedIn has its own bottom bar, adjust if needed */
+  bottom: 80px;
+}
+
+.resume-assistant-badge[data-platform="indeed"] {
+  /* Indeed positioning */
+  bottom: 20px;
+}

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pandoc \"E:\\\\AIweb\\\\Resume Job Fit Assistant\\\\resume_extension_prd.docx\" -o /tmp/prd_output.md)",
+      "Read(//tmp/**)",
+      "Bash(pandoc resume_extension_prd.docx -o prd_content.md)",
+      "Bash(python C:/Users/17154/.claude/skills/docx/ooxml/scripts/unpack.py resume_extension_prd.docx prd_unpacked)",
+      "Bash(pip install:*)",
+      "Bash(node -c background/service-worker.js 2>&1 || echo \"Syntax check failed\")",
+      "Bash(for file:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
