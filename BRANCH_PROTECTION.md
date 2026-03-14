@@ -1,137 +1,137 @@
-# 分支保护设置指南
+# Branch Protection Setup Guide
 
-本文档说明如何在 GitHub 上设置分支保护规则，确保代码质量和项目稳定性。
+This document explains how to set up branch protection rules on GitHub to ensure code quality and project stability.
 
-## 🎯 推荐的分支保护配置
+## 🎯 Recommended Branch Protection Configuration
 
-### Main 分支保护
+### Main Branch Protection
 
-**访问路径**: Settings → Branches → Add rule
+**Access Path**: Settings → Branches → Add rule
 
-#### 基本设置
+#### Basic Settings
 
 ```
-分支名称模式: main
+Branch name pattern: main
 ```
 
-#### 必需设置
+#### Required Settings
 
 ✅ **Require a pull request before merging**
-- 必需审查人数: `1`
-- 解除旧审查的批准: `✓`
-- 要求代码所有者批准: `✓` (可选)
+- Required approving reviews: `1`
+- Dismiss stale reviews when new commits are pushed: `✓`
+- Require review from CODEOWNERS: `✓` (optional)
 
 ✅ **Require status checks to pass before merging**
-- 要求分支在合并前是最新状态: `✓`
-- 必需的状态检查:
-  - `lint` (如果设置了 CI)
-  - `test` (如果设置了测试)
+- Require branches to be up to date before merging: `✓`
+- Required status checks:
+  - `lint` (if CI is set up)
+  - `test` (if tests are set up)
 
 ✅ **Do not allow bypassing the above settings**
-- 选择: "Restrict who can push to matching branches"
-- 仅允许: 项目维护者
+- Select: "Restrict who can push to matching branches"
+- Only allow: Project maintainers
 
-#### 可选设置
+#### Optional Settings
 
 🔹 **Require conversation resolution before merging**
-- 要求所有讨论评论都被解决
+- Require all discussions to be resolved
 
 🔹 **Require linear history**
-- 禁止合并提交（merge commits）
-- 强制使用 rebase 或 squash merge
+- Prohibit merge commits
+- Enforce rebase or squash merge
 
-## 📋 设置步骤
+## 📋 Setup Steps
 
-### 1. 访问仓库设置
+### 1. Access Repository Settings
 
 ```
 https://github.com/Misterlsj/ResumeJobFitAssistant/settings/branches
 ```
 
-### 2. 创建分支保护规则
+### 2. Create Branch Protection Rule
 
-1. 点击 "Add rule" 按钮
-2. 在 "Branch name pattern" 输入: `main`
-3. 配置上述推荐设置
-4. 点击 "Create" 或 "Save changes"
+1. Click "Add rule" button
+2. Enter "main" in "Branch name pattern"
+3. Configure the recommended settings above
+4. Click "Create" or "Save changes"
 
-### 3. 验证设置
+### 3. Verify Settings
 
-尝试直接推送到 `main` 分支，应该会被拒绝：
+Try pushing directly to `main` branch, which should be rejected:
 
 ```bash
 git checkout main
 git echo "test" >> test.txt
 git commit -m "test"
 git push origin main
-# 应该看到错误信息
+# Should see error message
 ```
 
-## 🔄 工作流程
+## 🔄 Workflow
 
-在分支保护设置后，使用以下工作流程：
+After setting up branch protection, use this workflow:
 
-### 功能开发
+### Feature Development
 
 ```bash
-# 1. 从 main 创建功能分支
+# 1. Create feature branch from main
 git checkout main
 git pull origin main
 git checkout -b feature/your-feature
 
-# 2. 开发和提交
-# ... 进行开发 ...
+# 2. Develop and commit
+# ... make changes ...
 git add .
 git commit -m "feat: add your feature"
 
-# 3. 推送到你的 fork
+# 3. Push to your fork
 git push origin feature/your-feature
 
-# 4. 在 GitHub 上创建 Pull Request
-# 5. 等待审查和合并
+# 4. Create Pull Request on GitHub
+# 5. Wait for review and merge
 ```
 
-### Bug 修复
+### Bug Fixes
 
 ```bash
-# 1. 从 main 创建修复分支
+# 1. Create fix branch from main
 git checkout main
 git pull origin main
 git checkout -b fix/your-bug-fix
 
-# 2. 修复和提交
-# ... 修复 bug ...
+# 2. Fix and commit
+# ... fix bug ...
 git add .
 git commit -m "fix: resolve XYZ issue"
 
-# 3. 推送并创建 PR
+# 3. Push and create PR
 git push origin fix/your-bug-fix
 ```
 
-## 🛡️ 保护级别
+## 🛡️ Protection Levels
 
-### Level 1: 基础保护 (最小推荐)
+### Level 1: Basic Protection (Minimum Recommended)
 
-- ✅ 禁止直接推送
-- ✅ 需要 PR 才能合并
+- ✅ Prohibit direct pushes
+- ✅ Require PR for merging
 
-### Level 2: 标准保护 (推荐)
+### Level 2: Standard Protection (Recommended)
 
-- ✅ Level 1 所有设置
-- ✅ 需要 1 个审查人批准
-- ✅ 要求状态检查通过
+- ✅ All Level 1 settings
+- ✅ Require 1 reviewer approval
+- ✅ Require status checks to pass
 
-### Level 3: 严格保护 (大型团队)
+### Level 3: Strict Protection (Large Teams)
 
-- ✅ Level 2 所有设置
-- ✅ 需要 2 个审查人批准
-- ✅ 需要代码所有者批准
-- ✅ 要求解决所有讨论
-- ✅ 要求线性历史
+- ✅ All Level 2 settings
+- ✅ Require 2 reviewer approvals
+- ✅ Require code owner approval
+- ✅ Require all discussions resolved
+- ✅ Require linear history
 
-## 🎨 GitHub Actions 集成 (可选)
+## 🎨 GitHub Actions Integration (Optional)
 
-如果设置了 CI/CD，可以添加：
+If you set up CI/CD, you can add:
 
 ```yaml
 # .github/workflows/ci.yml
@@ -150,71 +150,71 @@ jobs:
         run: npx web-ext lint
 ```
 
-## 📊 分支命名规范
+## 📊 Branch Naming Conventions
 
-推荐使用以下分支命名：
+We recommend using these branch prefixes:
 
-- `feature/` - 新功能
-- `fix/` - Bug 修复
-- `docs/` - 文档更新
-- `refactor/` - 代码重构
-- `test/` - 测试相关
-- `chore/` - 构建/工具相关
+- `feature/` - New features
+- `fix/` - Bug fixes
+- `docs/` - Documentation updates
+- `refactor/` - Code refactoring
+- `test/` - Test-related
+- `chore/` - Build/tooling
 
-示例：
+Examples:
 ```bash
 feature/add-monster-support
 fix/linkedin-spa-navigation
 docs/update-readme
 ```
 
-## 🔒 权限管理
+## 🔒 Permission Management
 
-### 推荐的团队角色
+### Recommended Team Roles
 
-**Admin (管理员)**:
-- 可以修改所有设置
-- 可以推送到任何分支
+**Admin (Administrators)**:
+- Can modify all settings
+- Can push to any branch
 
-**Maintainer (维护者)**:
-- 可以合并 PR
-- 可以绕过分支保护
+**Maintainer (Maintainers)**:
+- Can merge PRs
+- Can bypass branch protection
 
-**Developer (开发者)**:
-- 可以创建 PR
-- 不能直接推送到 main
+**Developer (Developers)**:
+- Can create PRs
+- Cannot push directly to main
 
-**Contributor (贡献者)**:
-- 只能 fork 和创建 PR
+**Contributor (Contributors)**:
+- Can only fork and create PRs
 
-## ⚠️ 常见问题
+## ⚠️ Common Issues
 
-### Q: 如果需要紧急修复怎么办？
+### Q: What if I need to make emergency fixes?
 
-**A**: 管理员可以临时关闭分支保护，推送紧急修复，然后重新启用保护。
+**A**: Administrators can temporarily disable branch protection, push emergency fixes, then re-enable protection.
 
-### Q: 如何处理合并冲突？
+### Q: How to handle merge conflicts?
 
 **A**:
-1. 更新你的功能分支
+1. Update your feature branch
 ```bash
 git checkout feature/your-feature
 git fetch origin
 git rebase origin/main
 ```
-2. 解决冲突
-3. 推送更新
+2. Resolve conflicts
+3. Push updates
 
-### Q: 状态检查失败怎么办？
+### Q: What if status checks fail?
 
-**A**: 查看详细日志，修复问题后推送新提交。
+**A**: View detailed logs, fix issues, then push new commits.
 
-## 📚 相关资源
+## 📚 Related Resources
 
-- [GitHub 分支保护文档](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/managing-branch-protections)
-- [CONTRIBUTING.md](CONTRIBUTING.md) - 贡献指南
-- [DEVELOPMENT.md](DEVELOPMENT.md) - 开发指南
+- [GitHub Branch Protection Documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/managing-branch-protections)
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
+- [DEVELOPMENT.md](DEVELOPMENT.md) - Development guide
 
 ---
 
-**注意**: 建议立即设置分支保护，即使是个人项目也能防止意外推送。
+**Note**: We recommend setting up branch protection immediately, even for personal projects to prevent accidental pushes.

@@ -1,67 +1,67 @@
-# GitHub 仓库设置完成指南 🎉
+# GitHub Repository Setup Complete Guide 🎉
 
-恭喜！你的 GitHub 仓库已经完成了专业的配置设置。本文档将引导你完成最后的设置步骤。
+Congratulations! Your GitHub repository has been configured with professional settings. This guide will walk you through the final setup steps.
 
-## ✅ 已完成的配置
+## ✅ Completed Configuration
 
-### 1. 文档配置
-- ✅ **CONTRIBUTING.md** - 详细的贡献指南
-- ✅ **DEVELOPMENT.md** - 全面的开发文档
-- ✅ **SECURITY.md** - 安全政策和漏洞报告流程
-- ✅ **SUPPORT.md** - 用户支持和故障排除
-- ✅ **CHANGELOG.md** - 版本变更记录
-- ✅ **CODE_OF_CONDUCT.md** - 社区行为准则
-- ✅ **LICENSE** - MIT 开源许可证
+### 1. Documentation
+- ✅ **CONTRIBUTING.md** - Detailed contribution guidelines
+- ✅ **DEVELOPMENT.md** - Comprehensive development documentation
+- ✅ **SECURITY.md** - Security policy and vulnerability reporting
+- ✅ **SUPPORT.md** - User support and troubleshooting
+- ✅ **CHANGELOG.md** - Version changelog
+- ✅ **CODE_OF_CONDUCT.md** - Community guidelines
+- ✅ **LICENSE** - MIT open source license
 
-### 2. GitHub 模板
-- ✅ **PR 模板** - Pull Request 标准模板
-- ✅ **Bug 报告模板** - 结构化的 Bug 报告
-- ✅ **功能请求模板** - 功能建议模板
+### 2. GitHub Templates
+- ✅ **PR Template** - Standard Pull Request template
+- ✅ **Bug Report Template** - Structured bug reporting
+- ✅ **Feature Request Template** - Feature suggestion template
 
-### 3. CI/CD 自动化
-- ✅ **CI 工作流** - 自动代码质量检查
-- ✅ **Release 工作流** - 自动发布流程
-- ✅ **标签同步** - Issue 标签管理
-- ✅ **Dependabot** - 依赖更新自动化
+### 3. CI/CD Automation
+- ✅ **CI Workflow** - Automated code quality checks
+- ✅ **Release Workflow** - Automated release process
+- ✅ **Label Sync** - Issue label management
+- ✅ **Dependabot** - Dependency update automation
 
-### 4. Git 配置
-- ✅ **main 分支** - 创建并设置为默认
-- ✅ **master 分支** - 本地已删除
-- ✅ **远程仓库** - 已连接到 GitHub
+### 4. Git Configuration
+- ✅ **main branch** - Created and set as default
+- ✅ **master branch** - Deleted locally
+- ✅ **Remote repository** - Connected to GitHub
 
 ---
 
-## 📋 需要手动完成的设置
+## 📋 Manual Setup Steps
 
-### 步骤 1: 在 GitHub 上设置 main 为默认分支
+### Step 1: Set main as Default Branch on GitHub
 
-1. 访问仓库设置页面：
+1. Visit repository settings:
    ```
    https://github.com/Misterlsj/ResumeJobFitAssistant/settings/branches
    ```
 
-2. 在 "Default branch" 部分：
-   - 点击 🔄 切换图标
-   - 选择 `main` 分支
-   - 点击 "Update" 按钮
-   - 确认更新
+2. In the "Default branch" section:
+   - Click the 🔄 switch icon
+   - Select `main` branch
+   - Click "Update" button
+   - Confirm the update
 
-3. (可选) 删除 master 分支：
-   - 在同一页面找到 `master` 分支
-   - 点击 🗑️ 删除图标
+3. (Optional) Delete master branch:
+   - Find `master` branch on the same page
+   - Click the 🗑️ delete icon
 
-### 步骤 2: 设置分支保护规则
+### Step 2: Set Up Branch Protection Rules
 
-1. 访问分支保护设置：
+1. Visit branch protection settings:
    ```
    https://github.com/Misterlsj/ResumeJobFitAssistant/settings/branches
    ```
 
-2. 点击 "Add rule" 按钮
+2. Click "Add rule" button
 
-3. 配置规则：
+3. Configure the rule:
    ```
-   分支名称模式: main
+   Branch name pattern: main
 
    ✅ Require a pull request before merging
       - Approvals required: 1
@@ -70,7 +70,7 @@
 
    ✅ Require status checks to pass before merging
       ✅ Require branches to be up to date before merging
-      选择必需的检查:
+      Select required checks:
       - Lint Extension
       - Validate manifest.json
       - Check Required Files
@@ -78,125 +78,123 @@
    ✅ Do not allow bypassing the above settings
    ```
 
-4. 点击 "Create" 保存
+4. Click "Create" to save
 
-**详细指南**: 查看 [BRANCH_PROTECTION.md](BRANCH_PROTECTION.md)
+**Detailed Guide**: See [BRANCH_PROTECTION.md](BRANCH_PROTECTION.md)
 
-### 步骤 3: 同步 Issue 标签
+### Step 3: Sync Issue Labels
 
-1. 访问 Actions 页面：
+1. Visit Actions page:
    ```
    https://github.com/Misterlsj/ResumeJobFitAssistant/actions
    ```
 
-2. 找到 "Sync Issue Labels" 工作流
+2. Find "Sync Issue Labels" workflow
 
-3. 点击 "Run workflow" → "Run workflow"
+3. Click "Run workflow" → "Run workflow"
 
-这将创建所有标准化的 Issue 标签。
+This will create all standardized issue labels.
 
-### 步骤 4: 配置仓库信息
+### Step 4: Configure Repository Information
 
-访问仓库设置页面：
+Visit repository settings page:
 ```
 https://github.com/Misterlsj/ResumeJobFitAssistant/settings
 ```
 
-#### 4.1 基本信息
+#### 4.1 Basic Information
 - **Description**: Chrome extension that bridges job postings to resume tools
-- **Website**: (你的网站 URL，如果有的话)
+- **Website**: (Your website URL if applicable)
 - **Topics**: `chrome-extension`, `job-search`, `resume`, `recruitment`, `manifest-v3`
 
-#### 4.2 功能设置
-在 "Features" 部分：
-- ✅ **Issues**: 启用
-- ✅ **Discussions**: 启用（推荐）
-- ✅ **Wiki**: 可选
-- ✅ **Projects**: 可选
-- ⚠️ **Actions**: 必须启用（用于 CI/CD）
+#### 4.2 Features Settings
+In "Features" section:
+- ✅ **Issues**: Enabled
+- ✅ **Discussions**: Enabled (recommended)
+- ✅ **Wiki**: Optional
+- ✅ **Projects**: Optional
+- ⚠️ **Actions**: Must be enabled (for CI/CD)
 
-#### 4.3 安全设置
-在 "Security" 部分：
-- 启用 "Security advisories"
-- 设置安全策略（链接到 SECURITY.md）
+#### 4.3 Security Settings
+In "Security" section:
+- Enable "Security advisories"
+- Set security policy (link to SECURITY.md)
 
-### 步骤 5. 启用 GitHub Pages (可选)
+### Step 5: Enable GitHub Pages (Optional)
 
-如果你想展示项目文档：
+If you want to showcase project documentation:
 
-1. 访问 Pages 设置：
+1. Visit Pages settings:
    ```
    https://github.com/Misterlsj/ResumeJobFitAssistant/settings/pages
    ```
 
-2. 配置：
+2. Configure:
    - **Source**: Deploy from a branch
    - **Branch**: main
    - **Folder**: /root
-   - **Theme**: 选择一个主题
+   - **Theme**: Choose a theme
 
-### 步骤 6. 设置 CODEOWNERS (可选)
+### Step 6: Set Up CODEOWNERS (Optional)
 
-创建 `.github/CODEOWNERS` 文件：
+Create `.github/CODEOWNERS` file:
 
 ```bash
-# 在项目中创建
+# Create in project
 echo "* @Misterlsj" > .github/CODEOWNERS
 git add .github/CODEOWNERS
 git commit -m "docs: add CODEOWNERS file"
 git push origin main
 ```
 
-这会要求你在合并 PR 前进行审批。
+This will require your approval before merging PRs.
 
 ---
 
-## 🎨 自定义配置
+## 🎨 Customization
 
-### 修改 Issue 标签
+### Modifying Issue Labels
 
-编辑 `.github/labels.yml` 文件，然后运行 "Sync Issue Labels" 工作流。
+Edit `.github/labels.yml` file, then run "Sync Issue Labels" workflow.
 
-### 添加新的 CI 检查
+### Adding New CI Checks
 
-在 `.github/workflows/ci.yml` 中添加新的 job。
+Add new jobs in `.github/workflows/ci.yml`.
 
-### 自定义 Release 流程
+### Customizing Release Flow
 
-编辑 `.github/workflows/release.yml` 以自定义发布包的内容。
+Edit `.github/workflows/release.yml` to customize release package contents.
 
 ---
 
-## 📊 验证设置
+## 📊 Verification Checklist
 
-### 检查清单
+- [ ] main branch is default branch
+- [ ] Branch protection rules enabled
+- [ ] Issue labels synced
+- [ ] CI/CD workflows running
+- [ ] Repository information filled
+- [ ] Security settings configured
 
-- [ ] main 分支是默认分支
-- [ ] 分支保护规则已启用
-- [ ] Issue 标签已同步
-- [ ] CI/CD 工作流正常运行
-- [ ] 仓库信息已填写
-- [ ] 安全设置已配置
+### Testing CI Workflow
 
-### 测试 CI 工作流
-
-1. 创建一个新的分支：
+1. Create a new branch:
    ```bash
    git checkout -b test/ci-test
    ```
 
-2. 做一个小修改：
+2. Make a small change:
    ```bash
    echo "# Test" >> README.md
    git commit -am "test: CI workflow test"
    git push origin test/ci-test
    ```
 
-3. 创建 Pull Request
+3. Create Pull Request
 
-4. 检查 Actions 页面，确保所有检查通过
+4. Check Actions page to ensure all checks pass
 
-5. 删除测试分支：
+5. Delete test branch:
    ```bash
    git checkout main
    git branch -D test/ci-test
@@ -204,57 +202,57 @@ git push origin main
 
 ---
 
-## 🚀 下一步
+## 🚀 Next Steps
 
-### 1. 创建第一个 Release
+### 1. Create First Release
 
 ```bash
-# 标记版本
+# Tag version
 git tag -a v1.0.0 -m "Release version 1.0.0"
 
-# 推送标签
+# Push tag
 git push origin v1.0.0
 ```
 
-这将自动触发 Release 工作流，创建发布包。
+This will automatically trigger the Release workflow.
 
-### 2. 添加协作者
+### 2. Add Collaborators
 
-访问：
+Visit:
 ```
 https://github.com/Misterlsj/ResumeJobFitAssistant/settings/access
 ```
 
-邀请协作者或设置团队。
+Invite collaborators or set up teams.
 
-### 3. 设置项目看板 (可选)
+### 3. Set Up Project Board (Optional)
 
-使用 GitHub Projects 来跟踪功能和 Bug。
+Use GitHub Projects to track features and bugs.
 
-### 4. 集成外部工具 (可选)
+### 4. Integrate External Tools (Optional)
 
-- **Discord/Slack**: 通知集成
-- **Coveralls**: 代码覆盖率
-- **CodeClimate**: 代码质量分析
-
----
-
-## 📞 需要帮助？
-
-- 📖 查看 [SUPPORT.md](SUPPORT.md)
-- 🐛 [报告问题](../../issues)
-- 💬 [参与讨论](../../discussions)
+- **Discord/Slack**: Notification integrations
+- **Coveralls**: Code coverage
+- **CodeClimate**: Code quality analysis
 
 ---
 
-## 🎉 完成！
+## 📞 Need Help?
 
-你的 GitHub 仓库现在已经配置为一个专业的开源项目！
+- 📖 Check [SUPPORT.md](SUPPORT.md)
+- 🐛 [Report Issues](../../issues)
+- 💬 [Join Discussions](../../discussions)
 
-**记住**:
-- 定期更新 CHANGELOG.md
-- 及时审查和合并 PR
-- 保持 Issue 整洁
-- 定发布新版本
+---
 
-**祝你的项目成功！** 🚀
+## 🎉 You're All Set!
+
+Your GitHub repository is now configured as a professional open source project!
+
+**Remember**:
+- Update CHANGELOG.md regularly
+- Review and merge PRs promptly
+- Keep Issues organized
+- Release new versions periodically
+
+**Good luck with your project!** 🚀

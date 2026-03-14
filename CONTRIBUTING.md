@@ -1,164 +1,164 @@
-# 贡献指南
+# Contributing Guidelines
 
-感谢你对 Resume Job-Fit Assistant 项目的关注！我们欢迎各种形式的贡献。
+Thank you for your interest in contributing to the Resume Job-Fit Assistant project! We welcome all forms of contributions.
 
-## 🤝 如何贡献
+## 🤝 How to Contribute
 
-### 报告问题
+### Reporting Issues
 
-如果你发现了 bug 或有功能建议：
+If you find a bug or have a feature suggestion:
 
-1. 检查 [Issues](../../issues) 确认问题尚未被报告
-2. 创建新的 Issue，使用清晰的标题描述问题
-3. 在描述中包含：
-   - 复现步骤
-   - 预期行为
-   - 实际行为
-   - 截图（如适用）
-   - 浏览器版本和扩展版本
-   - 相关控制台错误日志
+1. Check [Issues](../../issues) to confirm the issue hasn't been reported
+2. Create a new Issue with a clear title
+3. Include in the description:
+   - Steps to reproduce
+   - Expected behavior
+   - Actual behavior
+   - Screenshots (if applicable)
+   - Browser and extension version
+   - Relevant console error logs
 
-### 提交代码
+### Submitting Code
 
-#### 1. Fork 仓库并克隆
+#### 1. Fork and Clone Repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/ResumeJobFitAssistant.git
 cd ResumeJobFitAssistant
 ```
 
-#### 2. 创建功能分支
+#### 2. Create Feature Branch
 
 ```bash
 git checkout -b feature/your-feature-name
-# 或修复 bug
+# or for bug fix
 git checkout -b fix/your-bug-fix
 ```
 
-**分支命名规范：**
-- `feature/` - 新功能
-- `fix/` - Bug 修复
-- `docs/` - 文档更新
-- `refactor/` - 代码重构
-- `test/` - 测试相关
-- `chore/` - 构建/工具相关
+**Branch naming conventions:**
+- `feature/` - New features
+- `fix/` - Bug fixes
+- `docs/` - Documentation updates
+- `refactor/` - Code refactoring
+- `test/` - Test-related
+- `chore/` - Build/tooling changes
 
-#### 3. 进行开发
+#### 3. Make Changes
 
-- 遵循现有的代码风格
-- 为新功能添加测试
-- 更新相关文档
-- 确保代码通过 lint 检查
+- Follow existing code style
+- Add tests for new features
+- Update relevant documentation
+- Ensure code passes lint checks
 
-#### 4. 提交更改
+#### 4. Commit Changes
 
 ```bash
 git add .
 git commit -m "feat: add support for XYZ platform"
 ```
 
-**提交信息规范：**
+**Commit message conventions:**
 
-我们使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
+We follow [Conventional Commits](https://www.conventionalcommits.org/) specification:
 
-- `feat:` - 新功能
-- `fix:` - Bug 修复
-- `docs:` - 文档更改
-- `style:` - 代码格式（不影响功能）
-- `refactor:` - 代码重构
-- `test:` - 添加或更新测试
-- `chore:` - 构建过程或辅助工具变动
+- `feat:` - New feature
+- `fix:` - Bug fix
+- `docs:` - Documentation changes
+- `style:` - Code formatting (doesn't affect functionality)
+- `refactor:` - Code refactoring
+- `test:` - Adding or updating tests
+- `chore:` - Build process or auxiliary tool changes
 
-示例：
+Examples:
 ```
 feat: add support for Monster.com job board
 fix: handle edge case in LinkedIn SPA navigation
 docs: update installation instructions
 ```
 
-#### 5. 推送到你的 Fork
+#### 5. Push to Your Fork
 
 ```bash
 git push origin feature/your-feature-name
 ```
 
-#### 6. 创建 Pull Request
+#### 6. Create Pull Request
 
-1. 访问 GitHub 上的原仓库
-2. 点击 "New Pull Request"
-3. 选择你的功能分支
-4. 填写 PR 模板
-5. 等待代码审查
+1. Visit the original repository on GitHub
+2. Click "New Pull Request"
+3. Select your feature branch
+4. Fill out the PR template
+5. Wait for code review
 
-## 📋 PR 审查标准
+## 📋 Pull Request Review Criteria
 
-所有 Pull Request 需要满足：
+All Pull Requests must meet:
 
-- ✅ 通过所有测试
-- ✅ 代码风格一致
-- ✅ 添加必要的文档
-- ✅ 更新 CHANGELOG.md（如适用）
-- ✅ 没有引入新的 linting 错误
-- ✅ 不影响现有平台支持
+- ✅ Pass all tests
+- ✅ Consistent code style
+- ✅ Include necessary documentation
+- ✅ Update CHANGELOG.md (if applicable)
+- ✅ No new linting errors
+- ✅ Don't break existing platform support
 
-## 🧪 测试指南
+## 🧪 Testing Guidelines
 
-### 手动测试清单
+### Manual Testing Checklist
 
-提交 PR 前，请确保：
+Before submitting a PR, ensure:
 
-- [ ] 扩展在所有支持平台正常工作
-- [ ] 浮动徽章正确显示和隐藏
-- [ ] Popup 正确显示职位数据
-- [ ] 设置页面功能正常
-- [ ] 无控制台错误
-- [ ] 性能没有明显下降
+- [ ] Extension works on all supported platforms
+- [ ] Floating badge appears and disappears correctly
+- [ ] Popup displays job data correctly
+- [ ] Settings page functions properly
+- [ ] No console errors
+- [ ] No significant performance degradation
 
-### 测试各平台
+### Testing Each Platform
 
-详细的平台测试步骤请参考 [README.md](README.md#测试各平台集成)。
+For detailed platform testing steps, see [README.md](README.md#testing-platform-integration).
 
-## 🎨 代码规范
+## 🎨 Code Standards
 
 ### JavaScript
 
-- 使用现代 ES6+ 语法
-- 函数命名清晰表达意图
-- 避免全局变量污染
-- 使用常量定义配置和魔法数字
+- Use modern ES6+ syntax
+- Function names should clearly express intent
+- Avoid global variable pollution
+- Use constants for configuration and magic numbers
 
-### Chrome Extension 特定规范
+### Chrome Extension Specific Standards
 
-- **权限最小化**: 只请求必需的权限
-- **性能**: Content script 注入 < 50ms
-- **内存**: 及时清理事件监听器和 DOM 引用
-- **存储**: 使用 `chrome.storage.session` 存储临时数据
-- **安全**: 避免使用 `eval()` 和动态代码执行
+- **Minimal Permissions**: Only request necessary permissions
+- **Performance**: Content script injection < 50ms
+- **Memory**: Clean up event listeners and DOM references promptly
+- **Storage**: Use `chrome.storage.session` for temporary data
+- **Security**: Avoid `eval()` and dynamic code execution
 
 ### CSS
 
-- 使用 BEM 或类似命名规范
-- 避免过度嵌套（最多 3 层）
-- 使用 CSS 变量定义颜色和尺寸
-- 确保足够的颜色对比度（WCAG AA）
+- Use BEM or similar naming convention
+- Avoid excessive nesting (max 3 levels)
+- Use CSS variables for colors and dimensions
+- Ensure sufficient color contrast (WCAG AA)
 
-## 📚 添加新平台支持
+## 📚 Adding New Platform Support
 
-要添加对新招聘平台的支持：
+To add support for a new job board:
 
-1. 在 `content-scripts/` 创建新文件 `platform-name.js`
-2. 导出 `extractJobData()` 函数
-3. 在 `manifest.json` 添加 `matches` 规则
-4. 更新文档和支持平台列表
-5. 添加测试用例
+1. Create new file `content-scripts/platformname.js`
+2. Export `extractJobData()` function
+3. Add `matches` rules in `manifest.json`
+4. Update documentation and supported platforms list
+5. Add test cases
 
-示例模板：
+Template example:
 
 ```javascript
 // content-scripts/newplatform.js
 async function extractJobData() {
   try {
-    // 提取逻辑
+    // Extraction logic
     const jobTitle = document.querySelector('...')?.textContent?.trim();
     const companyName = document.querySelector('...')?.textContent?.trim();
 
@@ -178,41 +178,41 @@ async function extractJobData() {
 }
 ```
 
-## 🐛 调试技巧
+## 🐛 Debugging Tips
 
 ### Chrome DevTools
 
 - **Background Script**: `chrome://extensions` → Service Worker
-- **Content Script**: 右键页面 → 检查 → Console
-- **Popup**: 右键扩展图标 → 检查
+- **Content Script**: Right-click page → Inspect → Console
+- **Popup**: Right-click extension icon → Inspect
 
-### 常用调试命令
+### Useful Debugging Commands
 
 ```javascript
-// 查看存储数据
+// View storage data
 chrome.storage.session.get(null, console.log);
 
-// 清除存储
+// Clear storage
 chrome.storage.session.clear();
 
-// 查看所有标签页
+// View all tabs
 chrome.tabs.query({}, console.log);
 ```
 
-## 💬 讨论和问题
+## 💬 Discussions and Questions
 
-- 💡 **功能建议**: 使用 [Issues](../../issues) 标记为 `enhancement`
-- 🐛 **Bug 报告**: 使用 Issues 标记为 `bug`
-- 💭 **一般讨论**: 使用 [Discussions](../../discussions)
+- 💡 **Feature suggestions**: Use [Issues](../../issues) with `enhancement` label
+- 🐛 **Bug reports**: Use Issues with `bug` label
+- 💭 **General discussion**: Use [Discussions](../../discussions)
 
-## 📄 许可证
+## 📄 License
 
-通过贡献代码，你同意你的贡献将在与项目相同的许可证下发布。
+By contributing code, you agree that your contributions will be licensed under the same license as the project.
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
-感谢所有贡献者让这个项目变得更好！
+Thanks to all contributors who make this project better!
 
 ---
 
-有任何问题？随时创建 Issue 或 Discussion，我们会尽快回复！
+Have questions? Feel free to create an Issue or Discussion, and we'll respond as soon as possible!

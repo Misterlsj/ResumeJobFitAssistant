@@ -1,125 +1,125 @@
-# 安全政策
+# Security Policy
 
-## 🔒 安全承诺
+## 🔒 Security Commitment
 
-我们致力于维护 Resume Job-Fit Assistant 的安全性。本项目遵循以下安全原则：
+We are committed to maintaining the security of Resume Job-Fit Assistant. This project follows these security principles:
 
-- **零用户数据收集**: 所有数据存储在本地
-- **无外部 API 调用**: 不向任何外部服务发送数据
-- **最小权限原则**: 只请求必需的浏览器权限
-- **开源透明**: 代码完全开源，可审计
+- **Zero User Data Collection**: All data stored locally
+- **No External API Calls**: No data sent to any external services
+- **Minimal Permissions**: Only requests necessary browser permissions
+- **Open Source Transparency**: Code is fully open source and auditable
 
-## 🛡️ 安全架构
+## 🛡️ Security Architecture
 
-### 数据隐私
+### Data Privacy
 
-- 所有职位数据存储在用户本地浏览器（`chrome.storage`）
-- 不向任何服务器发送用户数据
-- 不使用任何跟踪或分析工具
-- 不收集任何用户个人信息
+- All job data is stored in the user's local browser (`chrome.storage`)
+- No data is sent to any servers
+- No tracking or analytics tools used
+- No personal information is collected
 
-### 权限使用
+### Permission Usage
 
 ```json
 {
   "permissions": [
-    "storage",      // 本地数据存储
-    "activeTab"     // 访问当前活动标签页
+    "storage",      // Local data storage
+    "activeTab"     // Access current active tab
   ],
   "host_permissions": [
-    "<all_urls>"    // 内容脚本注入到招聘网站
+    "<all_urls>"    // Content script injection on job sites
   ]
 }
 ```
 
-**权限说明**:
-- `storage`: 用于存储设置和临时职位数据
-- `activeTab`: 用于检测当前页面内容
-- `host_permissions`: 仅用于在招聘网站页面注入内容脚本
+**Permission Explanation**:
+- `storage`: Used to store settings and temporary job data
+- `activeTab`: Used to detect current page content
+- `host_permissions`: Only used to inject content scripts on recruitment websites
 
-### 安全编码实践
+### Secure Coding Practices
 
-- ✅ 无 `eval()` 或动态代码执行
-- ✅ 严格的 Content Security Policy
-- ✅ 输入验证和数据清理
-- ✅ 无跨站脚本 (XSS) 风险
-- ✅ 无跨站请求伪造 (CSRF) 风险
+- ✅ No `eval()` or dynamic code execution
+- ✅ Strict Content Security Policy
+- ✅ Input validation and sanitization
+- ✅ No Cross-Site Scripting (XSS) risks
+- ✅ No Cross-Site Request Forgery (CSRF) risks
 
-## 🐛 报告安全漏洞
+## 🐛 Reporting Security Vulnerabilities
 
-如果你发现了安全漏洞，**请不要公开 issue**。
+If you discover a security vulnerability, **please do NOT open a public issue**.
 
-### 报告方式
+### How to Report
 
-请发送邮件至：[待添加]
+Send an email to: [To be added]
 
-**邮件内容应包含**:
-- 漏洞描述
-- 复现步骤
-- 影响范围
-- 建议的修复方案（如有）
+**Email should include**:
+- Description of the vulnerability
+- Steps to reproduce
+- Scope of impact
+- Suggested fix (if any)
 
-### 响应承诺
+### Response Commitment
 
-- 🔒 我们会在 **48 小时内** 确认收到
-- 🔍 我们会在 **7 天内** 进行初步评估
-- 🔧 我们会在 **14 天内** 提供修复或时间表
-- 🎉 我们会在修复后公开致谢（如你愿意）
+- 🔒 We will acknowledge receipt within **48 hours**
+- 🔍 We will provide initial assessment within **7 days**
+- 🔧 We will provide a fix or timeline within **14 days**
+- 🎉 We will publicly acknowledge after fix (if you wish)
 
-### 安全漏洞处理流程
+### Security Vulnerability Handling Process
 
-1. **确认**: 验证漏洞报告
-2. **评估**: 确定严重程度和影响范围
-3. **修复**: 开发和测试修复方案
-4. **发布**: 发布新版本到 Chrome Web Store
-5. **公开**: 在修复后公开漏洞详情（如适用）
+1. **Acknowledgment**: Verify vulnerability report
+2. **Assessment**: Determine severity and impact scope
+3. **Fix**: Develop and test fix
+4. **Release**: Publish new version to Chrome Web Store
+5. **Disclosure**: Publicly disclose vulnerability details (if applicable)
 
-## 🔍 常见安全问题
+## 🔍 Common Security Questions
 
-### Q: 扩展会收集我的数据吗？
+### Q: Does the extension collect my data?
 
-**A**: 不会。所有数据都存储在你本地的浏览器中。
+**A**: No. All data is stored in your local browser.
 
-### Q: 扩展会向服务器发送数据吗？
+### Q: Does the extension send data to servers?
 
-**A**: 不会。扩展完全离线工作，不向任何服务器发送数据。
+**A**: No. The extension works completely offline and doesn't send data to any servers.
 
-### Q: 我能查看源代码吗？
+### Q: Can I view the source code?
 
-**A**: 当然！项目完全开源，你可以在 GitHub 上查看所有代码。
+**A**: Absolutely! The project is fully open source, and you can view all code on GitHub.
 
-### Q: 如果我发现安全问题怎么办？
+### Q: What should I do if I find a security issue?
 
-**A**: 请按照上面的"报告安全漏洞"部分联系我们。
+**A**: Please report it following the "Reporting Security Vulnerabilities" section above.
 
-## 📋 安全审计
+## 📋 Security Audit
 
-我们欢迎安全研究人员对我们的代码进行审计。
+We welcome security researchers to audit our code.
 
-### 审计指南
+### Audit Guidelines
 
-- 请遵守负责任的披露原则
-- 不要利用漏洞进行恶意活动
-- 测试仅限于你自己控制的账户和数据
+- Please follow responsible disclosure principles
+- Do not exploit vulnerabilities for malicious activities
+- Limit testing to accounts and data you control
 
-### 致谢
+### Acknowledgments
 
-我们感谢所有帮助我们发现和修复安全问题的研究人员！
+We thank all security researchers who help us discover and fix security issues!
 
-## 🔄 安全更新
+## 🔄 Security Updates
 
-当发现并修复安全漏洞时：
+When security vulnerabilities are discovered and fixed:
 
-1. 发布新版本到 Chrome Web Store
-2. 更新 CHANGELOG.md
-3. 发布安全公告（如需要）
-4. 建议用户更新到最新版本
+1. Release new version to Chrome Web Store
+2. Update CHANGELOG.md
+3. Publish security advisory (if needed)
+4. Recommend users update to latest version
 
-## 📞 联系方式
+## 📞 Contact Information
 
-- **安全问题**: [待添加]
-- **一般问题**: [GitHub Issues](../../issues)
+- **Security Issues**: [To be added]
+- **General Issues**: [GitHub Issues](../../issues)
 
 ---
 
-**最后更新**: 2025-01-14
+**Last Updated**: 2025-01-14

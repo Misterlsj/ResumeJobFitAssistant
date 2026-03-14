@@ -1,110 +1,104 @@
-# 变更日志
+# Changelog
 
-本文档记录项目的所有重要变更。
+This document records all significant changes to the project.
 
-格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
-版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
+Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and versioning adheres to [Semantic Versioning](https://semver.org/).
 
-## [未发布]
+## [Unreleased]
 
-### 计划中
-- 添加自动化测试
-- 添加 CI/CD 流程
-- 支持更多招聘平台
+### Planned
+- Add automated testing
+- Add CI/CD pipeline
+- Support more job boards
 
 ## [1.0.0] - 2025-01-14
 
-### 新增
-- ✨ 初始版本发布
-- 🎯 支持 5 大招聘平台：
+### Added
+- ✨ Initial release
+- 🎯 Support for 5 major job boards:
   - LinkedIn (`linkedin.com/jobs/view/*`)
   - Indeed (`indeed.com/viewjob*`, `indeed.com/jobs*`)
   - Glassdoor (`glassdoor.com/job-listing/*`)
   - Lever (`jobs.lever.co/*`)
   - Greenhouse (`boards.greenhouse.io/*/jobs/*`)
-- 🔍 自动职位检测和提取
-- 🎨 非侵入式浮动徽章 UI
-- 📱 扩展弹出窗口显示职位数据
-- ⚙️ 设置页面
-- 📦 Manifest V3 架构
-- 🚀 零 AI 功能，零 API 密钥
-- 🔒 完全本地存储，不收集用户数据
+- 🔍 Automatic job detection and extraction
+- 🎨 Non-intrusive floating badge UI
+- 📱 Extension popup showing job data
+- ⚙️ Settings page
+- 📦 Manifest V3 architecture
+- 🚀 Zero AI functionality, zero API keys
+- 🔒 Fully local storage, no user data collection
 
-### 技术特性
-- Content Scripts 自动注入
-- Service Worker 消息处理
-- chrome.storage.session 临时数据存储
-- LinkedIn SPA 导航支持
-- Base64 URL 编码职位描述
-- 响应式 CSS 设计
+### Technical Features
+- Content Scripts auto-injection
+- Service Worker message handling
+- chrome.storage.session temporary data storage
+- LinkedIn SPA navigation support
+- Base64 URL encoding for job descriptions
+- Responsive CSS design
 
-### 文档
-- 📝 README.md - 项目概述
-- 📝 CONTRIBUTING.md - 贡献指南
-- 📝 DEVELOPMENT.md - 开发指南
-- 📝 SECURITY.md - 安全政策
-- 📝 CLAUDE.md - AI 辅助开发指南
-- 📝 CHANGELOG.md - 变更日志
+### Documentation
+- 📝 README.md - Project overview
+- 📝 CONTRIBUTING.md - Contribution guidelines
+- 📝 DEVELOPMENT.md - Development guide
+- 📝 SECURITY.md - Security policy
+- 📝 CLAUDE.md - AI-assisted development guide
+- 📝 CHANGELOG.md - Version changelog
 
-### GitHub 配置
-- 🔀 PR 模板
-- 🐛 Bug 报告模板
-- ✨ 功能请求模板
-- 🛡️ 分支保护指南
+### GitHub Configuration
+- 🔀 PR template
+- 🐛 Bug report template
+- ✨ Feature request template
+- 🛡️ Branch protection guide
 
-## [未来版本]
+## [Future Versions]
 
-### 计划功能
-- 🌍 支持更多国际招聘平台
-- 🎨 自定义主题选项
-- 📊 使用统计和性能监控
-- 🔔 智能通知系统
-- 🌐 多语言支持
+### Planned Features
+- 🌍 Support for more international job boards
+- 🎨 Custom theme options
+- 📊 Usage statistics and performance monitoring
+- 🔔 Smart notification system
+- 🌐 Multi-language support
 
 ---
 
-## 版本说明
+## Version Explanations
 
 ### [1.0.0] - 2025-01-14
 
-**首次公开发布**
+**First public release**
 
-核心功能完整，支持主要招聘平台，架构清晰，文档完善。
-
----
-
-## 变更类型说明
-
-- `新增` - 新功能
-- `变更` - 现有功能的变更
-- `弃用` - 即将移除的功能
-- `移除` - 已移除的功能
-- `修复` - Bug 修复
-- `安全` - 安全相关的修复或改进
+Core functionality complete, supports major job boards, clean architecture, comprehensive documentation.
 
 ---
 
-**注释**:
-- `[未发布]` - 尚未发布的变更
-- `[版本号]` - 已发布版本的链接
+## Change Types
+
+- `Added` - New features
+- `Changed` - Changes to existing functionality
+- `Deprecated` - Soon-to-be removed features
+- `Removed` - Removed features
+- `Fixed` - Bug fixes
+- `Security` - Security-related fixes or improvements
 
 ---
 
-## 如何使用此文件
+## How to Use This File
 
-### 添加新变更
+### Adding New Changes
 
-1. 在 `[未发布]` 部分添加变更
-2. 使用标准的变更类型
-3. 清晰描述变更内容
+1. Add changes under `[Unreleased]` section
+2. Use standard change types
+3. Clearly describe the changes
 
-### 发布新版本
+### Releasing New Version
 
-1. 创建新版本部分：`[1.1.0] - 2025-XX-XX`
-2. 移动 `[未发布]` 的内容到新版本
-3. 清空 `[未发布]` 部分
-4. 更新 Git 标签
+1. Create new version section: `[1.1.0] - 2025-XX-XX`
+2. Move `[Unreleased]` content to new version
+3. Clear `[Unreleased]` section
+4. Update Git tags
 
 ---
 
-**维护者**: 请在每次发布时更新此文件
+**Maintainer**: Please update this file with each release

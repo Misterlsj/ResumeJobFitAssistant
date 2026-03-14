@@ -1,234 +1,235 @@
-# 获取帮助
+# Getting Help
 
-欢迎来到 Resume Job-Fit Assistant 的支持中心！这里有多种方式可以获得帮助。
+Welcome to the Resume Job-Fit Assistant support center! Here are various ways to get help.
 
-## 📚 文档
+## 📚 Documentation
 
-### 快速开始
-- 📖 [README.md](README.md) - 项目概述和基本使用
-- 🛠️ [DEVELOPMENT.md](DEVELOPMENT.md) - 详细的开发指南
-- 🤝 [CONTRIBUTING.md](CONTRIBUTING.md) - 如何贡献代码
+### Quick Start
+- 📖 [README.md](README.md) - Project overview and basic usage
+- 🛠️ [DEVELOPMENT.md](DEVELOPMENT.md) - Detailed development guide
+- 🤝 [CONTRIBUTING.md](CONTRIBUTING.md) - How to contribute
 
-### 常见问题
+## 🤔 Frequently Asked Questions
 
-### Q: 扩展在某个网站上不工作怎么办？
+### Q: The extension doesn't work on a specific website. What should I do?
 
-**A**: 请按以下步骤排查：
+**A**: Follow these troubleshooting steps:
 
-1. **确认平台支持**
-   - 检查该平台是否在 [支持列表](README.md#支持的所有平台) 中
-   - 确认 URL 模式匹配
+1. **Check Platform Support**
+   - Verify the platform is in the [supported list](README.md#supported-platforms)
+   - Confirm the URL pattern matches
 
-2. **刷新扩展**
-   - 访问 `chrome://extensions`
-   - 点击扩展的刷新按钮
+2. **Reload Extension**
+   - Visit `chrome://extensions`
+   - Click the extension's reload button
 
-3. **检查控制台错误**
-   - 在目标页面按 `F12` 打开开发者工具
-   - 查看 Console 是否有错误信息
-   - 将错误信息复制给我们
+3. **Check Console Errors**
+   - Press `F12` on the target page to open DevTools
+   - Check Console for error messages
+   - Copy error messages to us
 
-4. **重新加载页面**
-   - 有时页面加载问题会导致扩展未注入
+4. **Reload the Page**
+   - Sometimes page loading issues prevent injection
+   - Try refreshing the page
 
-### Q: 浮动徽章不显示？
+### Q: The floating badge doesn't appear?
 
-**A**: 可能的原因：
+**A**: Possible reasons:
 
-1. **页面不是职位详情页**
-   - 确保你在职位详情页面，而不是搜索列表页
+1. **Not a Job Detail Page**
+   - Ensure you're on a job detail page, not a search listing
 
-2. **扩展未注入**
-   - 检查 `chrome://extensions` 中扩展是否启用
-   - 点击"重新加载"按钮
+2. **Extension Not Injected**
+   - Check if the extension is enabled in `chrome://extensions`
+   - Click "Reload" button
 
-3. **CSS 冲突**
-   - 某些网站的 CSS 可能影响徽章显示
-   - 尝试点击扩展图标查看是否检测到职位
+3. **CSS Conflict**
+   - Some site CSS may affect badge display
+   - Try clicking the extension icon to see if job is detected
 
-### Q: Popup 显示 "No Job Detected"？
+### Q: Popup shows "No Job Detected"?
 
-**A**: 这意味着扩展未检测到职位数据：
+**A**: This means the extension hasn't detected job data:
 
-1. **确认 URL 匹配**
-   - 检查 manifest.json 中的 `matches` 规则
-   - 确认你的 URL 符合模式
+1. **Verify URL Match**
+   - Check `matches` rules in manifest.json
+   - Confirm your URL matches the pattern
 
-2. **等待页面完全加载**
-   - 某些网站动态加载内容
-   - 等待几秒钟后再试
+2. **Wait for Page Load**
+   - Some sites dynamically load content
+   - Wait a few seconds and try again
 
-3. **查看 Service Worker 日志**
-   - 访问 `chrome://extensions`
-   - 点击 "Service Worker" 查看日志
+3. **Check Service Worker Logs**
+   - Visit `chrome://extensions`
+   - Click "Service Worker" to view logs
 
-### Q: LinkedIn 页面切换时徽章不更新？
+### Q: The badge doesn't update when I switch pages on LinkedIn?
 
-**A**: LinkedIn 是 SPA 应用，需要特殊处理：
+**A**: LinkedIn is a SPA application and needs special handling:
 
-1. **等待几秒钟**
-   - 扩展需要时间检测 URL 变化
-   - 通常 1-2 秒后会更新
+1. **Wait a Few Seconds**
+   - Extension needs time to detect URL changes
+   - Usually updates within 1-2 seconds
 
-2. **刷新页面**
-   - 如果问题持续，尝试刷新页面
+2. **Refresh the Page**
+   - If problem persists, try refreshing
 
-3. **报告问题**
-   - 如果问题一直存在，请创建 Issue 报告
+3. **Report the Issue**
+   - If problem continues, please create an Issue
 
-### Q: 如何查看存储的职位数据？
+### Q: How can I view stored job data?
 
-**A**: 使用开发者工具：
+**A**: Use Developer Tools:
 
 ```javascript
-// 在 Console 中运行
+// Run in Console
 chrome.storage.session.get(null, (data) => {
   console.log(data);
 });
 ```
 
-### Q: 扩展会收集我的数据吗？
+### Q: Does the extension collect my data?
 
-**A**: 不会。请查看我们的 [安全政策](SECURITY.md)。
+**A**: No. Please see our [Security Policy](SECURITY.md).
 
-## 🐛 报告问题
+## 🐛 Reporting Issues
 
-如果你发现了 bug：
+If you find a bug:
 
-1. **搜索现有 Issues**
-   - 在 [Issues](../../issues) 中搜索是否已有相同问题
-   - 避免重复报告
+1. **Search Existing Issues**
+   - Search [Issues](../../issues) to see if it's already reported
+   - Avoid duplicate reports
 
-2. **使用 Bug 报告模板**
-   - 点击 "New Issue"
-   - 选择 "Bug 报告" 模板
-   - 填写所有必要信息
+2. **Use Bug Report Template**
+   - Click "New Issue"
+   - Select "Bug Report" template
+   - Fill in all required information
 
-3. **提供详细信息**
-   - Chrome 版本
-   - 扩展版本
-   - 受影响的平台
-   - 复现步骤
-   - 截图和错误日志
+3. **Provide Detailed Information**
+   - Chrome version
+   - Extension version
+   - Affected platform
+   - Steps to reproduce
+   - Screenshots and error logs
 
-## 💡 功能建议
+## 💡 Feature Requests
 
-我们欢迎功能建议！
+We welcome feature suggestions!
 
-1. **检查现有功能请求**
-   - 在 [Issues](../../issues) 中搜索标签 `enhancement`
+1. **Check Existing Requests**
+   - Search [Issues](../../issues) for label `enhancement`
 
-2. **使用功能请求模板**
-   - 点击 "New Issue"
-   - 选择 "功能请求" 模板
-   - 详细描述你的想法
+2. **Use Feature Request Template**
+   - Click "New Issue"
+   - Select "Feature Request" template
+   - Describe your idea in detail
 
-3. **参与讨论**
-   - 在 [Discussions](../../discussions) 中与其他用户交流
+3. **Join Discussions**
+   - Chat with other users in [Discussions](../../discussions)
 
-## 🤝 贡献代码
+## 🤝 Contributing Code
 
-如果你想要贡献代码：
+If you want to contribute code:
 
-1. 阅读 [贡献指南](CONTRIBUTING.md)
-2. Fork 仓库并创建分支
-3. 提交 Pull Request
-4. 等待代码审查
+1. Read [Contributing Guidelines](CONTRIBUTING.md)
+2. Fork repository and create branch
+3. Submit Pull Request
+4. Wait for code review
 
-## 📞 联系方式
+## 📞 Contact Information
 
 ### GitHub
-- **Issues**: [提交问题](../../issues)
-- **Discussions**: [参与讨论](../../discussions)
-- **Pull Requests**: [提交代码](../../pulls)
+- **Issues**: [Submit Issues](../../issues)
+- **Discussions**: [Join Discussions](../../discussions)
+- **Pull Requests**: [Submit Code](../../pulls)
 
-### 社区
-- **Star ⭐**: 如果这个项目对你有帮助，请给个 Star
-- **Fork**: 如果你想贡献代码，Fork 这个项目
+### Community
+- **Star ⭐**: If this project helps you, please give it a Star
+- **Fork**: If you want to contribute, Fork this project
 
-## 📖 学习资源
+## 📖 Learning Resources
 
-### Chrome 扩展开发
-- [Chrome Extension 官方文档](https://developer.chrome.com/docs/extensions/mv3/)
+### Chrome Extension Development
+- [Chrome Extension Official Docs](https://developer.chrome.com/docs/extensions/mv3/)
 - [Chrome Extension Samples](https://github.com/GoogleChrome/chrome-extensions-samples)
 
-### JavaScript 和 CSS
+### JavaScript and CSS
 - [MDN Web Docs](https://developer.mozilla.org/)
 - [JavaScript.info](https://javascript.info/)
 
-### Git 和 GitHub
-- [GitHub 官方文档](https://docs.github.com/)
-- [Pro Git 书籍](https://git-scm.com/book/zh/v2)
+### Git and GitHub
+- [GitHub Official Docs](https://docs.github.com/)
+- [Pro Git Book](https://git-scm.com/book/en/v2)
 
-## 🔧 故障排除
+## 🔧 Troubleshooting
 
-### 扩展无法加载
+### Extension Won't Load
 
-1. **检查文件完整性**
+1. **Check File Integrity**
    ```bash
-   # 确认所有文件存在
+   # Verify all files exist
    ls -R
    ```
 
-2. **检查 manifest.json 语法**
+2. **Check manifest.json Syntax**
    ```bash
    npx web-ext lint
    ```
 
-3. **重新加载扩展**
-   - 在 `chrome://extensions` 点击刷新
+3. **Reload Extension**
+   - Click reload in `chrome://extensions`
 
-### 性能问题
+### Performance Issues
 
-如果扩展导致页面变慢：
+If extension slows down pages:
 
-1. **检查控制台**
-   - 查看是否有性能警告
-   - 检查是否有无限循环
+1. **Check Console**
+   - Look for performance warnings
+   - Check for infinite loops
 
-2. **禁用其他扩展**
-   - 确认是本扩展的问题
-   - 可能是其他扩展冲突
+2. **Disable Other Extensions**
+   - Confirm it's this extension
+   - Might be conflicts with other extensions
 
-3. **报告问题**
-   - 提供性能分析数据
+3. **Report Issue**
+   - Include performance analysis data
 
-## 🌐 国际支持
+## 🌐 International Support
 
-目前我们支持：
-- 🇨🇳 简体中文
-- 🇺🇸 英语 (文档)
+Currently we support:
+- 🇺🇸 English
+- 🇨🇳 Chinese (documentation)
 
-如果你想要帮助翻译：
-- 创建 Issue 提出
-- 我们会添加翻译支持
+If you want to help translate:
+- Create Issue to propose
+- We will add translation support
 
-## 📋 获取最佳支持的技巧
+## 📋 Tips for Getting Better Support
 
-1. **提供详细信息**
-   - 越多的细节，越容易帮助
-   - 包括截图、错误日志、复现步骤
+1. **Provide Detailed Information**
+   - More details = better help
+   - Include screenshots, error logs, reproduction steps
 
-2. **使用模板**
-   - Issue 模板帮助我们快速理解问题
-   - 填写所有必填字段
+2. **Use Templates**
+   - Issue templates help us understand quickly
+   - Fill in all required fields
 
-3. **搜索优先**
-   - 先搜索是否已有解决方案
-   - 避免重复问题
+3. **Search First**
+   - Check if solution already exists
+   - Avoid duplicate issues
 
-4. **保持友好**
-   - 我们都是志愿者
-   - 礼貌和耐心会得到更好的帮助
+4. **Be Friendly**
+   - We're all volunteers
+   - Politeness and patience get better help
 
-5. **参与社区**
-   - 帮助其他用户
-   - 分享你的经验
+5. **Participate in Community**
+   - Help other users
+   - Share your experiences
 
-## 🎉 感谢使用 Resume Job-Fit Assistant！
+## 🎉 Thanks for Using Resume Job-Fit Assistant!
 
-我们感谢你的使用和反馈。让我们一起让这个项目变得更好！
+We appreciate your usage and feedback. Let's make this project better together!
 
 ---
 
-**需要更多帮助？** → [创建 Issue](../../issues)
+**Need more help?** → [Create Issue](../../issues)

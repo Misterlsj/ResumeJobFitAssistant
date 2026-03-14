@@ -1,124 +1,124 @@
-# 开发指南
+# Development Guide
 
-本文档提供 Resume Job-Fit Assistant Chrome 扩展的详细开发指南。
+This document provides detailed development guidelines for the Resume Job-Fit Assistant Chrome extension.
 
-## 📋 目录
+## 📋 Table of Contents
 
-- [环境设置](#环境设置)
-- [开发工作流](#开发工作流)
-- [架构详解](#架构详解)
-- [核心概念](#核心概念)
-- [调试技巧](#调试技巧)
-- [性能优化](#性能优化)
-- [测试策略](#测试策略)
-- [部署流程](#部署流程)
+- [Environment Setup](#environment-setup)
+- [Development Workflow](#development-workflow)
+- [Architecture Details](#architecture-details)
+- [Core Concepts](#core-concepts)
+- [Debugging Tips](#debugging-tips)
+- [Performance Optimization](#performance-optimization)
+- [Testing Strategy](#testing-strategy)
+- [Deployment Process](#deployment-process)
 
-## 🔧 环境设置
+## 🔧 Environment Setup
 
-### 必需工具
+### Required Tools
 
-- **Chrome 浏览器** (最新稳定版)
-- **代码编辑器** (推荐 VS Code)
-- **Git** (版本控制)
+- **Chrome Browser** (latest stable version)
+- **Code Editor** (VS Code recommended)
+- **Git** (version control)
 
-### 可选工具
+### Optional Tools
 
 ```bash
-# Chrome 扩展 lint 工具
+# Chrome extension lint tool
 npm install -g web-ext
 
-# 代码格式化
+# Code formatter
 npm install -g prettier
 
 # JavaScript linting
 npm install -g eslint
 ```
 
-### VS Code 扩展推荐
+### VS Code Extensions Recommended
 
-- **Chrome Extension Tools** - 调试支持
-- **ESLint** - 代码检查
-- **Prettier** - 代码格式化
-- **GitHub Copilot** - AI 辅助编码
+- **Chrome Extension Tools** - Debugging support
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **GitHub Copilot** - AI-assisted coding
 
-## 🔄 开发工作流
+## 🔄 Development Workflow
 
-### 1. 加载扩展进行开发
+### 1. Load Extension for Development
 
 ```bash
-# 1. 在 Chrome 中打开扩展管理页面
+# 1. Open Chrome extensions page
 chrome://extensions
 
-# 2. 启用开发者模式（右上角开关）
+# 2. Enable Developer Mode (toggle in top right)
 
-# 3. 点击"加载已解压的扩展程序"
+# 3. Click "Load unpacked"
 
-# 4. 选择项目根目录
+# 4. Select project root directory
 ```
 
-### 2. 开发循环
+### 2. Development Loop
 
 ```bash
-# 1. 修改代码
-# 2. 在 chrome://extensions 页面点击刷新按钮
-# 3. 测试更改
-# 4. 重复
+# 1. Make code changes
+# 2. Click refresh button on chrome://extensions page
+# 3. Test changes
+# 4. Repeat
 ```
 
-**快捷技巧**: 将扩展页面保持打开，使用 `Ctrl+R` 快速刷新。
+**Quick Tip**: Keep the extensions page open for quick `Ctrl+R` refresh.
 
-### 3. 验证更改
+### 3. Validate Changes
 
 ```bash
-# 运行 lint 检查
+# Run lint check
 npx web-ext lint
 
-# 检查 manifest 语法
+# Check manifest syntax
 npx web-ext lint --warnings-as-errors
 ```
 
-## 🏗️ 架构详解
+## 🏗️ Architecture Details
 
-### 文件结构
+### File Structure
 
 ```
 resume-extension/
-├── manifest.json              # 扩展配置清单
+├── manifest.json              # Extension manifest
 ├── background/
-│   └── service-worker.js      # 后台服务（无持久状态）
-├── content-scripts/           # 内容脚本（注入到网页）
-│   ├── detector.js           # 共享检测逻辑
-│   ├── linkedin.js           # LinkedIn 特定逻辑
-│   ├── indeed.js             # Indeed 特定逻辑
-│   ├── glassdoor.js          # Glassdoor 特定逻辑
-│   ├── lever.js              # Lever 特定逻辑
-│   └── greenhouse.js         # Greenhouse 特定逻辑
-├── popup/                    # 扩展弹出窗口
+│   └── service-worker.js      # Background service (no persistent state)
+├── content-scripts/           # Content scripts (injected into web pages)
+│   ├── detector.js           # Shared detection logic
+│   ├── linkedin.js           # LinkedIn-specific logic
+│   ├── indeed.js             # Indeed-specific logic
+│   ├── glassdoor.js          # Glassdoor-specific logic
+│   ├── lever.js              # Lever-specific logic
+│   └── greenhouse.js         # Greenhouse-specific logic
+├── popup/                    # Extension popup
 │   ├── popup.html
 │   ├── popup.js
 │   └── popup.css
-├── sidebar/                  # 页面浮动徽章
+├── sidebar/                  # Floating page badge
 │   ├── sidebar.js
 │   └── sidebar.css
-├── settings/                 # 设置页面
+├── settings/                 # Settings page
 │   ├── settings.html
 │   ├── settings.js
 │   └── settings.css
-└── assets/                   # 图标和图片资源
+└── assets/                   # Icons and image resources
     ├── icon.svg
     ├── icon-16.png
     ├── icon-48.png
     └── icon-128.png
 ```
 
-### 数据流架构
+### Data Flow Architecture
 
 ```
 ┌─────────────────┐
-│  招聘网站页面    │
-│  (LinkedIn等)   │
+│  Job Board Page │
+│  (LinkedIn etc) │
 └────────┬────────┘
-         │ 1. DOM加载
+         │ 1. DOM loads
          │
 ┌────────▼────────┐
 │  Content Script │
@@ -128,25 +128,25 @@ resume-extension/
          │
 ┌────────▼────────────┐
 │  Service Worker     │
-│  存储到session      │
+│  Stores to session  │
 └────────┬────────────┘
-         │ 3. 读取存储
+         │ 3. Read storage
          │
 ┌────────▼────────┐
 │  Popup/Sidebar  │
-│  显示职位数据    │
+│  Shows job data │
 └────────┬────────┘
-         │ 4. 用户点击CTA
+         │ 4. User clicks CTA
          │
 ┌────────▼────────┐
-│  打开网站       │
-│  (URL编码数据)  │
+│  Opens Website  │
+│  (URL-encoded)  │
 └─────────────────┘
 ```
 
-## 💡 核心概念
+## 💡 Core Concepts
 
-### Manifest V3 特性
+### Manifest V3 Features
 
 ```json
 {
@@ -160,15 +160,15 @@ resume-extension/
 }
 ```
 
-**关键变化**（对比 MV2）：
-- Service Worker 替代背景页面（无持久 DOM）
-- 使用 `chrome.storage.session` 替代 `chrome.storage.local`（会话级存储）
-- 需要显式声明 `host_permissions`
+**Key changes** (vs MV2):
+- Service Worker replaces background page (no persistent DOM)
+- Use `chrome.storage.session` instead of `chrome.storage.local` (session-level storage)
+- Must explicitly declare `host_permissions`
 
-### Content Script 注入
+### Content Script Injection
 
 ```javascript
-// manifest.json 中的配置
+// Configuration in manifest.json
 "content_scripts": [
   {
     "matches": ["https://www.linkedin.com/jobs/view/*"],
@@ -178,268 +178,254 @@ resume-extension/
 ]
 ```
 
-**注入时机**:
-- `document_start` - CSS 加载后，DOM 构建前
-- `document_end` - DOM 构建完成，但在资源加载前
-- `document_idle` - 最佳时机（默认）
+**Injection timing**:
+- `document_start` - After CSS loads, before DOM construction
+- `document_end` - After DOM construction, before resource loading
+- `document_idle` - Best timing (default)
 
-### 消息传递
+### Message Passing
 
 **Content Script → Service Worker**:
 ```javascript
-// 发送
+// Send
 chrome.runtime.sendMessage({
   type: 'JOB_DETECTED',
   data: jobData
 });
 
-// 接收
+// Receive
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === 'JOB_DETECTED') {
-    // 处理数据
+    // Handle data
   }
 });
 ```
 
 **Popup → Service Worker**:
 ```javascript
-// 请求当前作业数据
+// Request current job data
 chrome.runtime.sendMessage({ type: 'GET_CURRENT_JOB' }, (response) => {
   console.log(response.data);
 });
 ```
 
-### 存储策略
+### Storage Strategy
 
 ```javascript
-// 会话级存储（浏览器关闭时清除）
+// Session-level storage (cleared on browser close)
 chrome.storage.session.set({ currentJob: jobData });
 
-// 持久存储（设置等）
+// Persistent storage (settings, etc.)
 chrome.storage.local.set({ userSettings: settings });
 
-// 读取数据
+// Read data
 chrome.storage.session.get(['currentJob'], (result) => {
   console.log(result.currentJob);
 });
 ```
 
-## 🐛 调试技巧
+## 🐛 Debugging Tips
 
-### 调试 Service Worker
+### Debugging Service Worker
 
-1. 访问 `chrome://extensions`
-2. 找到扩展，点击 "Service Worker"
-3. 打开开发者工具进行调试
+1. Visit `chrome://extensions`
+2. Find the extension, click "Service Worker"
+3. Open DevTools for debugging
 
-**注意**: Service Worker 可能会休眠，调试时保持 DevTools 打开以保持活动。
+**Note**: Service Workers may become dormant. Keep DevTools open to keep them active during debugging.
 
-### 调试 Content Script
+### Debugging Content Scripts
 
-1. 在目标网页上右键 → "检查"
-2. 在 Console 中可以看到 content script 的日志
-3. 可以直接在 Console 中执行脚本代码
+1. Right-click on the target page → "Inspect"
+2. In the Console, you can see content script logs
+3. You can execute script code directly in the Console
 
-### 调试 Popup
+### Debugging Popup
 
-1. 右键扩展图标 → "检查"
-2. DevTools 将显示 popup 的 DOM
+1. Right-click extension icon → "Inspect"
+2. DevTools will show the popup's DOM
 
-### 常用调试代码
+### Useful Debugging Code
 
 ```javascript
-// 查看所有存储数据
+// View all stored data
 chrome.storage.session.get(null, (data) => console.log(data));
 
-// 清除存储
+// Clear storage
 chrome.storage.session.clear();
 
-// 查看所有标签页
+// View all tabs
 chrome.tabs.query({}, (tabs) => console.log(tabs));
 
-// 发送测试消息
+// Send test message
 chrome.runtime.sendMessage({ type: 'TEST' }, (response) => {
   console.log('Response:', response);
 });
 ```
 
-### 性能分析
+### Performance Profiling
 
 ```javascript
-// 在代码中添加性能标记
+// Add performance markers in your code
 console.time('jobExtraction');
-// ... 你的代码 ...
+// ... your code ...
 console.timeEnd('jobExtraction');
 ```
 
-## ⚡ 性能优化
+## ⚡ Performance Optimization
 
-### Content Script 优化
+### Content Script Optimization
 
-**❌ 不好的做法**:
+**❌ Bad practice**:
 ```javascript
-// 每次都查询 DOM
+// Query DOM every time
 function getTitle() {
   return document.querySelector('.job-title').textContent;
 }
 ```
 
-**✅ 好的做法**:
+**✅ Good practice**:
 ```javascript
-// 缓存 DOM 查询
+// Cache DOM queries
 const titleElement = document.querySelector('.job-title');
 function getTitle() {
   return titleElement?.textContent?.trim();
 }
 ```
 
-### 批量 DOM 操作
+### Batch DOM Operations
 
-**❌ 不好的做法**:
+**❌ Bad practice**:
 ```javascript
-// 多次重绘
+// Multiple repaints
 elements.forEach(el => {
   document.body.appendChild(el);
 });
 ```
 
-**✅ 好的做法**:
+**✅ Good practice**:
 ```javascript
-// 一次性添加
+// Single addition
 const fragment = document.createDocumentFragment();
 elements.forEach(el => fragment.appendChild(el));
 document.body.appendChild(fragment);
 ```
 
-### 消息传递优化
+### Message Passing Optimization
 
 ```javascript
-// 批量消息而不是频繁发送
+// Batch messages instead of frequent sends
 const debouncedSend = debounce(() => {
   chrome.runtime.sendMessage(data);
 }, 300);
 ```
 
-### 内存管理
+### Memory Management
 
 ```javascript
-// 清理事件监听器
+// Clean up event listeners
 function cleanup() {
   observer.disconnect();
   element.removeEventListener('click', handler);
 }
 
-// 在页面卸载时清理
+// Clean up on page unload
 window.addEventListener('unload', cleanup);
 ```
 
-## 🧪 测试策略
+## 🧪 Testing Strategy
 
-### 手动测试清单
+### Manual Testing Checklist
 
-#### 基础功能测试
-- [ ] 所有支持平台都能正确检测职位
-- [ ] 徽章在非职位页面不显示
-- [ ] Popup 正确显示职位数据
-- [ ] 设置保存和加载正常
-- [ ] 无控制台错误
+#### Basic Functionality Tests
+- [ ] All supported platforms detect jobs correctly
+- [ ] Badge doesn't appear on non-job pages
+- [ ] Popup displays job data correctly
+- [ ] Settings save and load properly
+- [ ] No console errors
 
-#### 平台特定测试
-- [ ] **LinkedIn**: SPA 导航正确触发
-- [ ] **Indeed**: 搜索页和详情页都能工作
-- [ ] **Glassdoor**: 各种职位页面格式
-- [ ] **Lever**: 不同公司的 Lever 页面
-- [ ] **Greenhouse**: 不同公司的 Greenhouse 页面
+#### Platform-Specific Tests
+- [ ] **LinkedIn**: SPA navigation triggers correctly
+- [ ] **Indeed**: Works on both search and detail pages
+- [ ] **Glassdoor**: Various job page formats
+- [ ] **Lever**: Different company Lever pages
+- [ ] **Greenhouse**: Different company Greenhouse pages
 
-#### 边界情况测试
-- [ ] 长职位描述（>8000 字符）正确截断
-- [ ] 特殊字符处理正确
-- [ ] 网络错误处理
-- [ ] 页面动态内容加载
+#### Edge Case Tests
+- [ ] Long job descriptions (>8000 chars) truncate correctly
+- [ ] Special characters handled properly
+- [ ] Network errors handled gracefully
+- [ ] Dynamic page content loads
 
-#### 性能测试
-- [ ] Content Script 注入时间 < 50ms
-- [ ] 数据提取时间 < 200ms
-- [ ] Popup 渲染时间 < 150ms
-- [ ] 不影响原页面性能
+#### Performance Tests
+- [ ] Content Script injection < 50ms
+- [ ] Data extraction < 200ms
+- [ ] Popup rendering < 150ms
+- [ ] Doesn't affect original page performance
 
-### 自动化测试（未来）
+## 🚀 Deployment Process
 
-```javascript
-// 示例：单元测试结构
-describe('Job Extraction', () => {
-  it('should extract LinkedIn job data', async () => {
-    const data = await extractJobData();
-    expect(data).toHaveProperty('job_title');
-    expect(data).toHaveProperty('company_name');
-  });
-});
-```
-
-## 🚀 部署流程
-
-### 准备发布
+### Preparing for Release
 
 ```bash
-# 1. 运行 lint 检查
+# 1. Run lint check
 npx web-ext lint
 
-# 2. 测试所有平台
-# 手动测试所有 5 个平台
+# 2. Test all platforms
+# Manual testing on all 5 platforms
 
-# 3. 更新版本号
-# 在 manifest.json 中更新 version
+# 3. Update version number
+# Update version in manifest.json
 
-# 4. 构建生产包
-# 确保移除开发-only 代码和日志
+# 4. Build production package
+# Ensure dev-only code and logs are removed
 
-# 5. 准备商店资源
-# - 图标：128×128, 48×48, 16×16 PNG
-# - 截图：1280×800 或 640×400
+# 5. Prepare store assets
+# - Icons: 128×128, 48×48, 16×16 PNG
+# - Screenshots: 1280×800 or 640×400
 ```
 
-### Chrome Web Store 提交
+### Chrome Web Store Submission
 
-1. 访问 [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole)
-2. 创建新项目
-3. 上传 ZIP 包（排除 `.git/`, `node_modules/` 等）
-4. 填写商店信息：
-   - 名称：Resume Job-Fit Assistant
-   - 描述：简短功能描述
-   - 详细描述：完整功能介绍
-   - 分类：生产力工具
-   - 语言：英语/中文
-5. 上传截图和图标
-6. 添加隐私政策 URL
-7. 提交审核
+1. Visit [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole)
+2. Create new item
+3. Upload ZIP package (exclude `.git/`, `node_modules/`, etc.)
+4. Fill in store information:
+   - Name: Resume Job-Fit Assistant
+   - Description: Brief feature description
+   - Detailed description: Complete feature overview
+   - Category: Productivity
+   - Language: English
+5. Upload screenshots and icons
+6. Add Privacy Policy URL
+7. Submit for review
 
-### 版本发布后
+### Post-Release
 
 ```bash
-# 创建 Git 标签
+# Create Git tag
 git tag -a v1.0.0 -m "Release version 1.0.0"
 git push origin v1.0.0
 
-# 更新 CHANGELOG.md
-# 添加新版本的功能和修复
+# Update CHANGELOG.md
+# Add new version features and fixes
 ```
 
-## 📚 相关资源
+## 📚 Related Resources
 
-### 官方文档
-- [Chrome Extension MV3 文档](https://developer.chrome.com/docs/extensions/mv3/)
+### Official Documentation
+- [Chrome Extension MV3 Documentation](https://developer.chrome.com/docs/extensions/mv3/)
 - [Chrome Storage API](https://developer.chrome.com/docs/extensions/reference/api/storage)
-- [Chrome Web Store 政策](https://developer.chrome.com/docs/webstore/program-policies/)
+- [Chrome Web Store Policies](https://developer.chrome.com/docs/webstore/program-policies/)
 
-### 社区资源
+### Community Resources
 - [Chrome Extension Samples](https://github.com/GoogleChrome/chrome-extensions-samples)
 - [web-ext (Mozilla)](https://github.com/mozilla/web-ext)
 
-### 项目文档
-- [README.md](README.md) - 项目概述和快速开始
-- [CONTRIBUTING.md](CONTRIBUTING.md) - 贡献指南
-- [CLAUDE.md](CLAUDE.md) - AI 辅助开发指南
+### Project Documentation
+- [README.md](README.md) - Project overview and quick start
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
 
 ---
 
-有问题？查看 [Issues](../../issues) 或创建新的 Issue！
+Have questions? Check [Issues](../../issues) or create a new Issue!
